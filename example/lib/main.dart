@@ -45,6 +45,8 @@ class _HomeState extends State<Home> {
       ),
       bottomNavigationBar: BottomBar(
         textStyle: TextStyle(fontWeight: FontWeight.bold),
+        backgroundColor: Colors.red,
+        barBorderRadius: BorderRadius.circular(30),
         selectedIndex: _currentPage,
         onTap: (int index) {
           _pageController.jumpToPage(index);

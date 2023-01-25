@@ -19,7 +19,8 @@ class BottomBar extends StatelessWidget {
     this.mainAxisAlignment = MainAxisAlignment.spaceBetween,
     this.backgroundColor,
     this.showActiveBackgroundColor = true,
-    this.border = const StadiumBorder(),
+    this.barBorderRadius,
+    this.itemBorder = const StadiumBorder(),
     this.itemPadding = const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
     required this.items,
     required this.onTap,
@@ -51,7 +52,10 @@ class BottomBar extends StatelessWidget {
   final bool showActiveBackgroundColor;
 
   /// [ShapeBorder] of the `BottomBarItem's` background color
-  final ShapeBorder border;
+  final ShapeBorder itemBorder;
+
+  /// [BorderRadius] for the bottom bar itself
+  final BorderRadiusGeometry? barBorderRadius;
 
   /// Padding between the background color and the
   /// `Row` that contains the icon and title
@@ -73,7 +77,7 @@ class BottomBar extends StatelessWidget {
     final brightness = Theme.of(context).brightness;
     return Container(
       height: height?.toDouble(),
-      decoration: BoxDecoration(color: backgroundColor),
+      decoration: BoxDecoration(color: backgroundColor, borderRadius: barBorderRadius,),
       child: Padding(
         padding: padding,
         child: Row(
@@ -103,7 +107,7 @@ class BottomBar extends StatelessWidget {
                 activeIconColor: activeIconColor,
                 activeTitleColor: activeTitleColor,
                 showActiveBackgroundColor: showActiveBackgroundColor,
-                border: border,
+                border: itemBorder,
                 inactiveColor: inactiveColor,
                 rightPadding: itemPadding.right,
                 curve: curve,
