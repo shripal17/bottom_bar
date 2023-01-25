@@ -77,7 +77,10 @@ class BottomBar extends StatelessWidget {
     final brightness = Theme.of(context).brightness;
     return Container(
       height: height?.toDouble(),
-      decoration: BoxDecoration(color: backgroundColor, borderRadius: barBorderRadius,),
+      decoration: BoxDecoration(
+        color: backgroundColor,
+        borderRadius: barBorderRadius,
+      ),
       child: Padding(
         padding: padding,
         child: Row(
